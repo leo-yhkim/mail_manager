@@ -1,0 +1,17 @@
+{
+    "name": "luna/mailmanager",
+    "description": "send mail and account create",
+    "authors": [
+        {
+            "name": "yhkim",
+            "email": "yhkim@lunasoft.co.kr"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {},
+    "autoload":{
+        "psr-4":{
+            "Luna\\MailManager":"src/"
+        }
+    }
+}
