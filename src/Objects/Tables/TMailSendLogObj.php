@@ -8,6 +8,7 @@
 
 namespace Luna\MailManager\Objects\Tables;
 
+use Luna\MailManager\Interfaces\Tables\TMailSendLogIf;
 
 class TMailSendLogObj implements TMailSendLogIf
 {
