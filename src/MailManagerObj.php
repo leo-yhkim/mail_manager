@@ -12,7 +12,7 @@ use Luna\MailManager\Objects\Domains\Google\MailServiceGoogleObj;
 use Luna\MailManager\Objects\Tables\TMailAccountManagerLogObj;
 use Luna\MailManager\Objects\Tables\TMailSendLogObj;
 
-class MailManager
+class MailManagerObj
 {
     private $mail_service;
 
