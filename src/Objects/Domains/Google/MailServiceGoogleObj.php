@@ -8,7 +8,7 @@
 
 namespace Luna\MailManager\Objects\Domains\Google;
 
-use Luna\MailManager\CommonConst as CODE;
+use Luna\MailManager\Commons\CommonConst as CODE;
 use Exception;
 use Luna\MailManager\Interfaces\Domains\MailServiceIf;
 use Google_Service_Directory;
