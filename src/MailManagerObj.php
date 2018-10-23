@@ -8,6 +8,7 @@
 
 namespace Luna\MailManager;
 
+use Luna\MailManager\Commons\CommonConst as CODE;
 use Luna\MailManager\Objects\Domains\Google\MailServiceGoogleObj;
 use Luna\MailManager\Objects\Tables\TMailAccountManagerLogObj;
 use Luna\MailManager\Objects\Tables\TMailSendLogObj;
@@ -30,20 +31,20 @@ class MailManagerObj
         //파라미터처리
         $mail_message = $this->mail_service->convertReqToMailFormat($req_param);
         //메일전송
-        $mail_send = $this->mail_service->sendMail($mail_message);
-
+        $proc_rtn = $this->mail_service->sendMail($mail_message);
+        //결과처리
+        $req_param = $this->resultAddReqParam($proc_rtn, $req_param);
         //메일전송이력 저장
-        $mail_send_log_obj = new TMailSendLogObj();
-        $mail_send_log_obj->add($req_param);
+        $this->insertMailSendLog($req_param);
 
-        return '성공';
+        return CODE::RETURN_SUCCEED;
     }
 
     /**메일발송 이력 조회
      * @param $req_param
      * @return array
      */
-    public function loadMailSendLog($req_param)
+    public function searchMailSendLog($req_param)
     {
         //메일전송이력 조회
         $mail_send_log_obj = new TMailSendLogObj();
@@ -64,20 +65,20 @@ class MailManagerObj
         //파라미터처리
         $user_info = $this->mail_service->convertReqToAccountFormat($req_param);
         //계정생성
-        $user_account_add = $this->mail_service->createUserAccount($user_info);
-
+        $proc_rtn = $this->mail_service->createUserAccount($user_info);
+        //결과처리
+        $req_param = $this->resultAddReqParam($proc_rtn, $req_param);
         //계정생성이력 저장
-        $mail_account_manager_log_obj = new TMailAccountManagerLogObj();
-        $mail_account_manager_log_obj->add($req_param);
+        $this->insertMailAccountManagerLog($req_param);
 
-        return '성공';
+        return CODE::RETURN_SUCCEED;
     }
 
     /**계정생성 이력 조회
      * @param $req_param
      * @return array
      */
-    public function loadMailAccountManagerLog($req_param)
+    public function searchMailAccountManagerLog($req_param)
     {
         //계정생성이력 조회
         $mail_account_manager_log_obj = new TMailAccountManagerLogObj();
@@ -86,5 +87,36 @@ class MailManagerObj
         return[
             'data' => $result
         ];
+    }
+
+    /**
+     * @param $proc_rtn
+     * @param $req_param
+     * @return mixed
+     */
+    private function resultAddReqParam($proc_rtn, $req_param)
+    {
+        $req_param['procCode'] = $proc_rtn['procCode'];
+        $req_param['procMsg'] = $proc_rtn['procMsg'];
+
+        return $req_param;
+    }
+
+    /**
+     * @param $req_param
+     */
+    private function insertMailSendLog($req_param)
+    {
+        $mail_send_log_obj = new TMailSendLogObj();
+        $mail_send_log_obj->add($req_param);
+    }
+
+    /**
+     * @param $req_param
+     */
+    private function insertMailAccountManagerLog($req_param)
+    {
+        $mail_account_manager_log_obj = new TMailAccountManagerLogObj();
+        $mail_account_manager_log_obj->add($req_param);
     }
 }

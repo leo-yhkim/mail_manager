@@ -19,6 +19,8 @@ class MailAccountManagerLogRepo
             'given_name'      => $req_param['givenName'],
             'full_name'      => $req_param['fullName'],
             'primary_email'       => $req_param['primaryEmail'],
+            'proc_code'         => $req_param['procCode'],
+            'proc_msg'          => $req_param['procMsg'],
             'account_add_user_id' => 'conn_user_id',
         ]);
     }
@@ -27,6 +29,6 @@ class MailAccountManagerLogRepo
     public static function load($list_date)
     {
         return MailAccountManagerLog::where('created_at', '>=', $list_date['from_date'])
-                              ->where('created_at', '<=', $list_date['to_date'] + 1)->get();
+            ->where('created_at', '<=', $list_date['to_date'] + 1)->get();
     }
 }

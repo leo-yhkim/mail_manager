@@ -20,6 +20,8 @@ class MailSendLogRepo
             'mail_subject'      => $req_param['mailSubject'],
             'mail_contents'     => $req_param['mailContents'],
             'mail_attach'       => $req_param['mailAttachPath'],
+            'proc_code'         => $req_param['procCode'],
+            'proc_msg'          => $req_param['procMsg'],
             'mail_send_user_id' => 'conn_user_id',
         ]);
     }
@@ -27,6 +29,6 @@ class MailSendLogRepo
     public static function load($req_param)
     {
         return MailSendLog::where('created_at', '>=', $req_param['from_date'])
-                            ->where('created_at', '<=', $req_param['to_date'] + 1)->get();
+            ->where('created_at', '<=', $req_param['to_date'] + 1)->get();
     }
 }
