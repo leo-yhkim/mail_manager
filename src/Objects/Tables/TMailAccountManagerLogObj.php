@@ -9,6 +9,7 @@
 namespace Luna\MailManager\Objects\Tables;
 
 use Luna\MailManager\Interfaces\Tables\TMailAccountManagerLogIf;
+use Luna\MailManager\Repositories\MailAccountManagerLogRepo;
 
 class TMailAccountManagerLogObj implements TMailAccountManagerLogIf
 {
