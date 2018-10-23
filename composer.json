@@ -11,7 +11,7 @@
     "require": {},
     "autoload":{
         "psr-4":{
-            "Luna\\MailManager":"src/"
+            "Luna\\MailManager\\":"src/"
         }
     }
 }
