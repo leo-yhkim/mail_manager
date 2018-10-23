@@ -8,6 +8,10 @@
 
 namespace Luna\MailManager;
 
+use Luna\MailManager\Objects\Domains\Google\MailServiceGoogleObj;
+use Luna\MailManager\Objects\Tables\TMailAccountManagerLogObj;
+use Luna\MailManager\Objects\Tables\TMailSendLogObj;
+
 class MailManager
 {
     private $mail_service;
