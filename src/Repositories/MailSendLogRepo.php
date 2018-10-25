@@ -19,7 +19,7 @@ class MailSendLogRepo
             'mail_to_name'      => $req_param['mailToName'],
             'mail_subject'      => $req_param['mailSubject'],
             'mail_contents'     => $req_param['mailContents'],
-            'mail_attach'       => $req_param['mailAttachPath'],
+            'mail_attach'       => $req_param['mailAttachFileName'],
             'proc_code'         => $req_param['procCode'],
             'proc_msg'          => $req_param['procMsg'],
             'mail_send_user_id' => 'conn_user_id',
