@@ -1,6 +1,8 @@
 {
     "name": "luna/mailmanager",
-    "description": "send mail and account create",
+    "type": "library",
+    "license": "Mup License",
+    "description": "mail send and account create using google api",
     "authors": [
         {
             "name": "yhkim",
@@ -8,7 +10,9 @@
         }
     ],
     "minimum-stability": "stable",
-    "require": {},
+    "require": {
+        "google/apiclient": "2.0"
+    },
     "autoload":{
         "psr-4":{
             "Luna\\MailManager\\":"src/"
