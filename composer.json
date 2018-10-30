@@ -2,7 +2,7 @@
     "name": "luna/mailmanager",
     "type": "library",
     "license": "Mup License",
-    "description": "mail send and account create using google api",
+    "description": "mail send and account create using google api - by luna",
     "authors": [
         {
             "name": "yhkim",
