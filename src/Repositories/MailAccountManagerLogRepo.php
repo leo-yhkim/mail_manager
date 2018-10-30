@@ -15,10 +15,10 @@ class MailAccountManagerLogRepo
     public static function add($req_param)
     {
         return MailAccountManagerLog::create([
-            'family_name'           => $req_param['familyName'],
-            'given_name'      => $req_param['givenName'],
-            'full_name'      => $req_param['fullName'],
-            'primary_email'       => $req_param['primaryEmail'],
+            'family_name'       => $req_param['familyName'],
+            'given_name'        => $req_param['givenName'],
+            'full_name'         => $req_param['fullName'],
+            'primary_email'     => $req_param['primaryEmail'],
             'proc_code'         => $req_param['procCode'],
             'proc_msg'          => $req_param['procMsg'],
             'account_add_user_id' => 'conn_user_id',
